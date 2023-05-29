@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 28, 2023 at 01:30 PM
--- Server version: 10.4.19-MariaDB
--- PHP Version: 8.0.6
+-- Waktu pembuatan: 29 Bulan Mei 2023 pada 15.01
+-- Versi server: 10.4.27-MariaDB
+-- Versi PHP: 8.0.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dokter`
+-- Struktur dari tabel `dokter`
 --
 
 CREATE TABLE `dokter` (
@@ -35,10 +35,10 @@ CREATE TABLE `dokter` (
   `jenis_kelamin` enum('Laki-laki','Perempuan','','') NOT NULL,
   `no_telp` varchar(12) NOT NULL,
   `alamat` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `dokter`
+-- Dumping data untuk tabel `dokter`
 --
 
 INSERT INTO `dokter` (`id_dokter`, `username`, `password`, `nama`, `jenis_kelamin`, `no_telp`, `alamat`) VALUES
@@ -47,19 +47,40 @@ INSERT INTO `dokter` (`id_dokter`, `username`, `password`, `nama`, `jenis_kelami
 -- --------------------------------------------------------
 
 --
--- Table structure for table `jadwal`
+-- Struktur dari tabel `jadwal`
 --
 
 CREATE TABLE `jadwal` (
   `id_jadwal` int(10) NOT NULL,
   `tanggal` date NOT NULL,
   `jam_mulai` time NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `login_dokter`
+-- Struktur dari tabel `janji_temu`
+--
+
+CREATE TABLE `janji_temu` (
+  `id` int(11) NOT NULL,
+  `nama` varchar(100) NOT NULL,
+  `tanggal` date NOT NULL,
+  `waktu` time NOT NULL,
+  `dokter` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `janji_temu`
+--
+
+INSERT INTO `janji_temu` (`id`, `nama`, `tanggal`, `waktu`, `dokter`) VALUES
+(15, 'fikei', '2023-05-31', '03:03:00', 's');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `login_dokter`
 --
 
 CREATE TABLE `login_dokter` (
@@ -68,10 +89,10 @@ CREATE TABLE `login_dokter` (
   `password` varchar(30) NOT NULL,
   `nama` varchar(30) NOT NULL,
   `id_dokter` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `login_dokter`
+-- Dumping data untuk tabel `login_dokter`
 --
 
 INSERT INTO `login_dokter` (`id`, `username`, `password`, `nama`, `id_dokter`) VALUES
@@ -80,7 +101,7 @@ INSERT INTO `login_dokter` (`id`, `username`, `password`, `nama`, `id_dokter`) V
 -- --------------------------------------------------------
 
 --
--- Table structure for table `login_pasien`
+-- Struktur dari tabel `login_pasien`
 --
 
 CREATE TABLE `login_pasien` (
@@ -89,10 +110,10 @@ CREATE TABLE `login_pasien` (
   `password` varchar(30) NOT NULL,
   `nama` varchar(30) NOT NULL,
   `level` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `login_pasien`
+-- Dumping data untuk tabel `login_pasien`
 --
 
 INSERT INTO `login_pasien` (`id`, `username`, `password`, `nama`, `level`) VALUES
@@ -104,7 +125,7 @@ INSERT INTO `login_pasien` (`id`, `username`, `password`, `nama`, `level`) VALUE
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pasien`
+-- Struktur dari tabel `pasien`
 --
 
 CREATE TABLE `pasien` (
@@ -115,10 +136,10 @@ CREATE TABLE `pasien` (
   `jenis_kelamin` enum('Laki-laki','Perempuan','','') NOT NULL,
   `no_telp` varchar(12) NOT NULL,
   `alamat` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `pasien`
+-- Dumping data untuk tabel `pasien`
 --
 
 INSERT INTO `pasien` (`id_pasien`, `username`, `password`, `nama`, `jenis_kelamin`, `no_telp`, `alamat`) VALUES
@@ -127,7 +148,7 @@ INSERT INTO `pasien` (`id_pasien`, `username`, `password`, `nama`, `jenis_kelami
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pembayaran`
+-- Struktur dari tabel `pembayaran`
 --
 
 CREATE TABLE `pembayaran` (
@@ -138,12 +159,12 @@ CREATE TABLE `pembayaran` (
   `id_dokter` int(10) NOT NULL,
   `id_pasien` int(10) NOT NULL,
   `nama_pasien` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `register`
+-- Struktur dari tabel `register`
 --
 
 CREATE TABLE `register` (
@@ -152,12 +173,12 @@ CREATE TABLE `register` (
   `username` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ruangan`
+-- Struktur dari tabel `ruangan`
 --
 
 CREATE TABLE `ruangan` (
@@ -169,45 +190,51 @@ CREATE TABLE `ruangan` (
   `nama_dokter` varchar(50) NOT NULL,
   `id_pasien` int(10) NOT NULL,
   `nama_pasien` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `dokter`
+-- Indeks untuk tabel `dokter`
 --
 ALTER TABLE `dokter`
   ADD PRIMARY KEY (`id_dokter`);
 
 --
--- Indexes for table `jadwal`
+-- Indeks untuk tabel `jadwal`
 --
 ALTER TABLE `jadwal`
   ADD PRIMARY KEY (`id_jadwal`);
 
 --
--- Indexes for table `login_dokter`
+-- Indeks untuk tabel `janji_temu`
+--
+ALTER TABLE `janji_temu`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `login_dokter`
 --
 ALTER TABLE `login_dokter`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `id_dokter` (`id_dokter`);
 
 --
--- Indexes for table `login_pasien`
+-- Indeks untuk tabel `login_pasien`
 --
 ALTER TABLE `login_pasien`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `pasien`
+-- Indeks untuk tabel `pasien`
 --
 ALTER TABLE `pasien`
   ADD PRIMARY KEY (`id_pasien`);
 
 --
--- Indexes for table `pembayaran`
+-- Indeks untuk tabel `pembayaran`
 --
 ALTER TABLE `pembayaran`
   ADD PRIMARY KEY (`id_pembayaran`),
@@ -217,13 +244,13 @@ ALTER TABLE `pembayaran`
   ADD KEY `nama_pasien` (`nama_pasien`);
 
 --
--- Indexes for table `register`
+-- Indeks untuk tabel `register`
 --
 ALTER TABLE `register`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `ruangan`
+-- Indeks untuk tabel `ruangan`
 --
 ALTER TABLE `ruangan`
   ADD PRIMARY KEY (`no_ruangan`),
@@ -233,63 +260,69 @@ ALTER TABLE `ruangan`
   ADD KEY `nama_pasien` (`nama_pasien`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `dokter`
+-- AUTO_INCREMENT untuk tabel `dokter`
 --
 ALTER TABLE `dokter`
   MODIFY `id_dokter` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `jadwal`
+-- AUTO_INCREMENT untuk tabel `jadwal`
 --
 ALTER TABLE `jadwal`
   MODIFY `id_jadwal` int(10) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `login_dokter`
+-- AUTO_INCREMENT untuk tabel `janji_temu`
+--
+ALTER TABLE `janji_temu`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT untuk tabel `login_dokter`
 --
 ALTER TABLE `login_dokter`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `login_pasien`
+-- AUTO_INCREMENT untuk tabel `login_pasien`
 --
 ALTER TABLE `login_pasien`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `pasien`
+-- AUTO_INCREMENT untuk tabel `pasien`
 --
 ALTER TABLE `pasien`
   MODIFY `id_pasien` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `pembayaran`
+-- AUTO_INCREMENT untuk tabel `pembayaran`
 --
 ALTER TABLE `pembayaran`
   MODIFY `id_pembayaran` int(10) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `register`
+-- AUTO_INCREMENT untuk tabel `register`
 --
 ALTER TABLE `register`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `ruangan`
+-- AUTO_INCREMENT untuk tabel `ruangan`
 --
 ALTER TABLE `ruangan`
   MODIFY `no_ruangan` int(10) NOT NULL AUTO_INCREMENT;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `login_dokter`
+-- Ketidakleluasaan untuk tabel `login_dokter`
 --
 ALTER TABLE `login_dokter`
   ADD CONSTRAINT `login_dokter_ibfk_1` FOREIGN KEY (`id_dokter`) REFERENCES `dokter` (`id_dokter`) ON DELETE CASCADE ON UPDATE CASCADE;
