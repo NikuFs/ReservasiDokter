@@ -1,3 +1,9 @@
+<?php
+    session_start();
+
+    if(isset($_SESSION['level']) && isset($_SESSION['username'])){
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -59,7 +65,7 @@
               <li><a href="reservasi/halamanReservasi.php">Reservasi</a></li>
               <li><a href="reservasi/daftar_janji_temu.php">Daftar Reservasi</a></li>
               <li><a href="reservasi/edit_hapus.php">Edit Data Reservasi</a></li>
-              <li><a href="#">Drop Down 4</a></li>
+              <li><a href="logout.php">LogOut</a></li>
               <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
                 <ul>
                   <li><a href="#">Deep Drop Down 1</a></li>
@@ -797,3 +803,10 @@
 </body>
 
 </html>
+
+<?php
+    }else{
+        header("Location: formLogin.php");
+        exit();
+    }
+?>

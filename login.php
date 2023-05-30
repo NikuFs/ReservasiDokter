@@ -1,10 +1,12 @@
 <?php
     include 'koneksi.php';
 
+    session_start();
+
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $sql = "SELECT * FROM login_pasien WHERE username = '$username' AND password = '$password'";
+    $sql = "SELECT * FROM login WHERE username = '$username' AND password = '$password'";
 
     $result = mysqli_query($conn, $sql);
 
@@ -22,7 +24,7 @@
             $_SESSION['username'] = $username;
             $_SESSION['level'] = "admin";
 
-            header("location:homeDokter.php");
+            header("location:Crud.php");
         }else{
             header("location:formLogin.php?pesan=gagal");
         }

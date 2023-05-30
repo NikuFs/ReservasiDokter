@@ -37,7 +37,7 @@
             //hashing password
             //$password = md5($password);
 
-            $sql = "SELECT * FROM login_pasien WHERE username = '$username'";
+            $sql = "SELECT * FROM login WHERE username = '$username'";
 
             $result = mysqli_query($conn, $sql);
 
@@ -45,7 +45,7 @@
                 header("Location: formRegister.php? error = The username is taken&$user_data");
                 exit();
             }else{
-                $sql2 = "INSERT INTO login_pasien(username, password, nama) VALUES('$username','$password','$name')";
+                $sql2 = "INSERT INTO login(username, password, nama) VALUES('$username','$password','$name')";
                 $result2 = mysqli_query($conn, $sql2);
 
                 if($result2){
