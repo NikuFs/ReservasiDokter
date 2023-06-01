@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 30, 2023 at 06:36 PM
+-- Generation Time: Jun 01, 2023 at 01:10 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.6
 
@@ -28,21 +28,19 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `dokter` (
-  `id_dokter` int(10) NOT NULL,
-  `username` varchar(30) NOT NULL,
-  `password` varchar(30) NOT NULL,
-  `nama` varchar(30) NOT NULL,
-  `jenis_kelamin` enum('Laki-laki','Perempuan','','') NOT NULL,
-  `no_telp` varchar(12) NOT NULL,
-  `alamat` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id` int(10) NOT NULL DEFAULT 0,
+  `username` varchar(30) CHARACTER SET utf8mb4 NOT NULL,
+  `password` varchar(30) CHARACTER SET utf8mb4 NOT NULL,
+  `nama` varchar(30) CHARACTER SET utf8mb4 NOT NULL,
+  `level` varchar(20) CHARACTER SET utf8mb4 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `dokter`
 --
 
-INSERT INTO `dokter` (`id_dokter`, `username`, `password`, `nama`, `jenis_kelamin`, `no_telp`, `alamat`) VALUES
-(6, 'dokter1', 'dokter1', 'iqbal', 'Laki-laki', '085861298186', 'cilame indah');
+INSERT INTO `dokter` (`id`, `username`, `password`, `nama`, `level`) VALUES
+(9, 'dokter1', 'dokter1', 'salfa', 'admin');
 
 -- --------------------------------------------------------
 
@@ -97,7 +95,8 @@ CREATE TABLE `login` (
 
 INSERT INTO `login` (`id`, `username`, `password`, `nama`, `level`) VALUES
 (2, 'pasien1', 'pasien1', 'iqbal', 'pasien'),
-(9, 'dokter1', 'dokter1', 'salfa', 'admin');
+(9, 'dokter1', 'dokter1', 'salfa', 'admin'),
+(12, 'dokter2', 'dokter2', 'Rehan', 'admin');
 
 -- --------------------------------------------------------
 
@@ -134,12 +133,6 @@ CREATE TABLE `register` (
 --
 
 --
--- Indexes for table `dokter`
---
-ALTER TABLE `dokter`
-  ADD PRIMARY KEY (`id_dokter`);
-
---
 -- Indexes for table `jadwal`
 --
 ALTER TABLE `jadwal`
@@ -172,12 +165,6 @@ ALTER TABLE `register`
 --
 
 --
--- AUTO_INCREMENT for table `dokter`
---
-ALTER TABLE `dokter`
-  MODIFY `id_dokter` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
 -- AUTO_INCREMENT for table `jadwal`
 --
 ALTER TABLE `jadwal`
@@ -187,7 +174,7 @@ ALTER TABLE `jadwal`
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `pembayaran`
