@@ -1,10 +1,9 @@
-<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-        <title>CRUD User</title>
+        <title>CRUD Reservasi</title>
         <meta content="" name="description">
         <meta content="" name="keywords">
 
@@ -35,12 +34,15 @@
                         <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                             <span class="fs-5 d-none d-sm-inline">Menu</span>
                         </a>
+
                         <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                             <li class="nav-item">
                                 <a href="crud.php" class="nav-link align-middle px-0">
                                     <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
                                 </a>
                             </li>
+
+                            <!-- INI KALAU ADA DASHBOARD -->
                             <!-- <li>
                                 <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                                     <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Dashboard</span> </a>
@@ -53,11 +55,12 @@
                                     </li>
                                 </ul>
                             </li> -->
+
                             <li>
                                 <a href="crudJadwal.php" class="nav-link px-0 align-middle">
                                     <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Jadwal</span></a>
                             </li>
-                            
+
                             <li>
                                 <a href="crudUser.php" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
                                     <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">User</span> </a>
@@ -84,41 +87,40 @@
                 </div>
                 <div class="col py-3">
                     <table class="table">
-                            <tr>
-                                <th>No</th>
-                                <th>Username</th>
-                                <th>Password</th>
-                                <th>Name</th>
-                                <th>level</th>
-                                <th colspan="2">Aksi</th>
-                            </tr>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama</th>
+                            <th>Tanggal</th>
+                            <th>Waktu</th>
+                            <th>Dokter</th>
+                            <th>Aksi</th>
+                        </tr>
+                        
+                        <?php
+                            include 'koneksi.php';
 
-                            <?php
-                                include "koneksi.php";
+                            $sql = "SELECT * FROM janji_temu";
+                            $result = $conn -> query($sql);
 
-                                $sql = "SELECT * FROM login";
-                                $result = $conn -> query($sql);
+                            if(!$result){
+                                die("Invalid query: ". $conn -> error);
+                            }
 
-                                if(!$result){
-                                    die("Invalid query: ". $conn -> error);
-                                }
 
-                                while($row = $result -> fetch_assoc()){
-                                    echo "<tr>
-                                        <td>".$row["id"]."</td>
-                                        <td>".$row["username"]."</td>
-                                        <td>".$row["password"]."</td>
-                                        <td>".$row["nama"]."</td>
-                                        <td>".$row["level"]."</td>
-                                        <td><a href='hapusUser.php?id=".$row['id']."'><i class='bi-trash'></i></a></td>
-                                        <td><a href='editForm.php?id=".$row['id']."'><i class='bi-pen'></i></a></td>
-                                    </tr>";
-                                }
-                            ?>
-                        </table>
-                        <a href="tambahForm.php">
-                            <button type="button" class="btn btn-primary float-end">Tambah</button>
-                        </a>
+                            // Menampilkan data janji temu dalam tabel
+                            while($row = $result -> fetch_assoc()){
+                                echo "<tr>
+                                    <td>".$row["id"]."</td>
+                                    <td>".$row['nama']."</td>
+                                    <td>".$row["tanggal"]."</td>
+                                    <td>".$row["waktu"]."</td>
+                                    <td>".$row["dokter"]."</td>
+                                    <td><a href='hapusJanji.php?id=".$row['id']."'><i class='bi-trash'></i></a></td>
+                                    <td><a href='editFormJanji.php?id=".$row['id']."'><i class='bi-pen'></i></a></td>
+                                </tr>";
+                            }
+                        ?>
+                    </table>
                 </div>
             </div>
         </div>

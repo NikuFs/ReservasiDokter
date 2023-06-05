@@ -78,9 +78,15 @@
                             </li>
 
                             <li>
+                                <a href="crudReservasi.php" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                                    <i class="fs-4 bi-calendar-check"></i></i> <span class="ms-1 d-none d-sm-inline">Reservasi</span> </a>
+                            </li>
+
+                            <li>
                                 <a href="logout.php" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                                     </i> <span class="ms-1 d-none d-sm-inline">LogOut</span> </a>
                             </li>
+                            
                             
                         </ul>
                         <hr>
