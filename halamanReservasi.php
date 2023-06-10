@@ -98,12 +98,6 @@
             <form action="homePasien.php">
                 <input type="submit" name="submit" value="Back">
         </form>
-
-        <script>
-            function showAlert(){
-                alert("Reservasi berhasil dilakukan!");
-            }
-        </script>
         </div>
     </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>
