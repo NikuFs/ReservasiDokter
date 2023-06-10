@@ -90,9 +90,12 @@
                         <tr>
                             <th>No</th>
                             <th>Nama</th>
+                            <th>Usia</th>
                             <th>Tanggal</th>
                             <th>Waktu</th>
                             <th>Dokter</th>
+                            <th>Gender</th>
+                            <th>Alamat</th>
                             <th>Aksi</th>
                         </tr>
                         
@@ -112,9 +115,12 @@
                                 echo "<tr>
                                     <td>".$row["id"]."</td>
                                     <td>".$row['nama']."</td>
+                                    <td>".$row["usia"]."</td>
                                     <td>".$row["tanggal"]."</td>
                                     <td>".$row["waktu"]."</td>
                                     <td>".$row["dokter"]."</td>
+                                    <td>".$row["gender"]."</td>
+                                    <td>".$row["alamat"]."</td>
                                     <td><a href='hapusJanji.php?id=".$row['id']."'><i class='bi-trash'></i></a></td>
                                     <td><a href='editFormJanji.php?id=".$row['id']."'><i class='bi-pen'></i></a></td>
                                 </tr>";

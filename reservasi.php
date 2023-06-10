@@ -7,8 +7,11 @@
     $tanggal = $_POST['tanggal'];
     $waktu = $_POST['waktu'];
     $dokter = $_POST['dokter'];
+    $gender = $_POST['gender'];
+    $usia = $_POST['usia'];
+    $alamat = $_POST['alamat'];
 
-    $sql = "INSERT INTO janji_temu(nama, tanggal, waktu, dokter) VALUES('$name', '$tanggal', '$waktu', '$dokter')";
+    $sql = "INSERT INTO janji_temu(nama, usia, tanggal, waktu, dokter, gender, alamat) VALUES('$name', '$usia', '$tanggal', '$waktu', '$dokter', '$gender', '$alamat')";
 
     if(mysqli_query($conn, $sql)){
         echo "Data berhasil ditambahkan <br>";
