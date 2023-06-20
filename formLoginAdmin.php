@@ -12,7 +12,7 @@
     <body>
     <div class="center">
         <h1>Login Admin</h1>
-        <form action="login.php" method="POST">
+        <form action="loginAdmin.php" method="POST">
             <div class="txt_field">
                 <input type="text" name="username" required>
                 <span></span>

@@ -4,14 +4,18 @@
     session_start();
 
     $name = $_POST['nama'];
+    $usia = $_POST['usia'];
+    $gender = $_POST['gender'];
+    $alamat = $_POST['alamat'];
+    $dokter = $_POST['dokter'];
     $tanggal = $_POST['tanggal'];
     $waktu = $_POST['waktu'];
-    $dokter = $_POST['dokter'];
-    $gender = $_POST['gender'];
-    $usia = $_POST['usia'];
-    $alamat = $_POST['alamat'];
+    
+    
+    
+    
 
-    $sql = "INSERT INTO janji_temu(nama, usia, tanggal, waktu, dokter, gender, alamat) VALUES('$name', '$usia', '$tanggal', '$waktu', '$dokter', '$gender', '$alamat')";
+    $sql = "INSERT INTO janji_temu(nama, usia, gender, alamat, dokter, tanggal, waktu) VALUES('$name', '$usia', '$gender', '$alamat', '$dokter', '$tanggal', '$waktu')";
 
     if(mysqli_query($conn, $sql)){
         echo "Data berhasil ditambahkan <br>";

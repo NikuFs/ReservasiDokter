@@ -15,15 +15,15 @@
     if($cek > 0){
         $data = mysqli_fetch_assoc($result);
 
-        if($data['level']=="pasien"){
+        if($data['level']=="admin"){
             $_SESSION['username'] = $username;
-            $_SESSION['level'] = "pasien";
+            $_SESSION['level'] = "admin";
 
-            header("location:homePasien.php");
+            header("location:Crud.php");
         }else{
-            header("location:formLogin.php?pesan=gagal");
+            header("location:formLoginAdmin.php?pesan=gagal");
         }
     }else{
-        header("location:formLogin.php?pesan=gagal");
+        header("location:formLoginAdmin.php?pesan=gagal");
     }
 ?>
