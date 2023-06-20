@@ -103,7 +103,16 @@
             <form action="homePasien.php">
                 <input type="submit" name="submit" value="Back">
             </form>
-
+            <form action="">
+                <input type="submit" name="submit" value="Cetak Reservasi" onclick="printInvoice()">
+            </form>
+            <script>
+            function printInvoice() {
+                // Code to generate and print the invoice
+                // You can customize this function according to your requirements
+                window.print();
+            }
+        </script>
         <script>
             function showAlert(){
                 alert("Reservasi berhasil dilakukan!");
