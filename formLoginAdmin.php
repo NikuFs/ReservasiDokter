@@ -5,13 +5,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>Login Pasien</title>
+        <title>Login Admin</title>
         <link rel="stylesheet" href="style.css">
     </head>
 
     <body>
     <div class="center">
-        <h1>Login Pasien</h1>
+        <h1>Login Admin</h1>
         <form action="login.php" method="POST">
             <div class="txt_field">
                 <input type="text" name="username" required>
@@ -28,7 +28,7 @@
             <input type="submit" name="submit" value="Login">
 
             <div class="signup_link">
-                <a href="formRegister.php">Belum punya akun?</a>
+                <a href="formRegisterAdmin.php">Belum punya akun?</a>
             </div>
         </form>
     </div>

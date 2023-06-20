@@ -2,6 +2,7 @@
     session_start();
 
     if(isset($_SESSION['level']) && isset($_SESSION['username'])){
+        $username = $_SESSION['username'];
 ?>
 
 <!DOCTYPE html>
@@ -49,7 +50,7 @@
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo me-auto"><a href="">RESERVASI DOKTER</a></h1>
+      <h1 class="logo me-auto"><a href=""><img src="assets/img/logoR.png" class="img-fluid animated"></a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -67,6 +68,7 @@
               <li><a href="reservasi/edit_hapus.php">Edit Data Reservasi</a></li> 
             </ul>
           </li> -->
+          <li><a href=""><h5>Selamat Datang, <?php echo $username; ?></h5></a></li>
           <li><a class="getstarted scrollto" href="logout.php">LogOut</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
