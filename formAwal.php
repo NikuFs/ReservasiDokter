@@ -10,6 +10,7 @@
     </head>
 
     <body>
+    <h3 class="logo me-auto" align="center"><a href=""><img src="assets/img/logoR.png" class="img-fluid animated"></a></h3>
     <div class="center">
         <h1>Selamat Datang di MedReserve</h1>
         <br>
