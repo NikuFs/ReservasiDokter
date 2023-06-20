@@ -42,7 +42,7 @@
             $result = mysqli_query($conn, $sql);
 
             if(mysqli_num_rows($result) > 0){
-                header("Location: formRegister.php? error = The username is taken&$user_data");
+                echo "<script>alert('Selamat, registrasi berhasil!')</script>";
                 exit();
             }else{
                 $sql2 = "INSERT INTO login(username, password, nama) VALUES('$username','$password','$name')";

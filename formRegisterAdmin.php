@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+        <link rel="shortcut icon" href="assets/img/logoRR.png" type="image/gif">
         <title>Register Admin</title>
         <link rel="stylesheet" href="style.css">
     </head>
@@ -52,7 +52,7 @@
             <input type="submit" name="register" value="Register">
 
             <div class="signup_link">
-                <a href="formLogin.php">Sudah punya akun?</a>
+                <a href="formLoginAdmin.php">Sudah punya akun?</a>
             </div>
         </form>
     </div>
