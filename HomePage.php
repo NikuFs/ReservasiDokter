@@ -67,8 +67,7 @@
               <li><a href="reservasi/edit_hapus.php">Edit Data Reservasi</a></li> 
             </ul>
           </li> -->
-          <li><a href=""><h5>Selamat Datang, <?php echo $username; ?></h5></a></li>
-          <li><a class="getstarted scrollto" href="logout.php">LogOut</a></li>
+          <li><a class="getstarted scrollto" href="login.php">Login</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
