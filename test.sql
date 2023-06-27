@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 01, 2023 at 01:10 PM
+-- Generation Time: Jun 27, 2023 at 06:12 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.6
 
@@ -28,19 +28,20 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `dokter` (
-  `id` int(10) NOT NULL DEFAULT 0,
-  `username` varchar(30) CHARACTER SET utf8mb4 NOT NULL,
-  `password` varchar(30) CHARACTER SET utf8mb4 NOT NULL,
-  `nama` varchar(30) CHARACTER SET utf8mb4 NOT NULL,
-  `level` varchar(20) CHARACTER SET utf8mb4 NOT NULL
+  `id` int(11) NOT NULL,
+  `nama` varchar(100) NOT NULL,
+  `gender` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `dokter`
 --
 
-INSERT INTO `dokter` (`id`, `username`, `password`, `nama`, `level`) VALUES
-(9, 'dokter1', 'dokter1', 'salfa', 'admin');
+INSERT INTO `dokter` (`id`, `nama`, `gender`) VALUES
+(1, 'Herman', 'Pria'),
+(2, 'Firman', 'Pria'),
+(3, 'Hilman', 'Pria'),
+(4, 'Salsa', 'Wanita');
 
 -- --------------------------------------------------------
 
@@ -63,17 +64,24 @@ CREATE TABLE `jadwal` (
 CREATE TABLE `janji_temu` (
   `id` int(11) NOT NULL,
   `nama` varchar(100) NOT NULL,
+  `usia` int(11) NOT NULL,
   `tanggal` date NOT NULL,
   `waktu` time NOT NULL,
-  `dokter` varchar(100) NOT NULL
+  `dokter` varchar(100) NOT NULL,
+  `gender` varchar(10) NOT NULL,
+  `alamat` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `janji_temu`
 --
 
-INSERT INTO `janji_temu` (`id`, `nama`, `tanggal`, `waktu`, `dokter`) VALUES
-(0, 'coba', '2023-05-01', '01:57:00', 'herman');
+INSERT INTO `janji_temu` (`id`, `nama`, `usia`, `tanggal`, `waktu`, `dokter`, `gender`, `alamat`) VALUES
+(12, 'coba7', 7, '2023-09-09', '09:09:00', 'coba7', 'pria', 'coba7'),
+(13, 'coba8', 8, '2023-08-08', '08:08:00', 'coba8', 'pria', 'coba8'),
+(14, 'coba9', 9, '2023-09-09', '09:09:00', 'Salsa', 'pria', 'coba9'),
+(15, 'coba10', 10, '2023-10-10', '10:10:00', 'salfa', 'pria', '10'),
+(16, 'p', 10, '1111-01-01', '11:11:00', 'salfa', 'pria', 'p');
 
 -- --------------------------------------------------------
 
@@ -96,7 +104,9 @@ CREATE TABLE `login` (
 INSERT INTO `login` (`id`, `username`, `password`, `nama`, `level`) VALUES
 (2, 'pasien1', 'pasien1', 'iqbal', 'pasien'),
 (9, 'dokter1', 'dokter1', 'salfa', 'admin'),
-(12, 'dokter2', 'dokter2', 'Rehan', 'admin');
+(12, 'dokter2', 'dokter2', 'Rehan', 'admin'),
+(13, 'dokter100', 'dokter100', 'Setiawan', ''),
+(16, 'coba10', 'coba10', 'coba10', 'pasien');
 
 -- --------------------------------------------------------
 
@@ -133,10 +143,22 @@ CREATE TABLE `register` (
 --
 
 --
+-- Indexes for table `dokter`
+--
+ALTER TABLE `dokter`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `jadwal`
 --
 ALTER TABLE `jadwal`
   ADD PRIMARY KEY (`id_jadwal`);
+
+--
+-- Indexes for table `janji_temu`
+--
+ALTER TABLE `janji_temu`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `login`
@@ -165,16 +187,28 @@ ALTER TABLE `register`
 --
 
 --
+-- AUTO_INCREMENT for table `dokter`
+--
+ALTER TABLE `dokter`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `jadwal`
 --
 ALTER TABLE `jadwal`
   MODIFY `id_jadwal` int(10) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `janji_temu`
+--
+ALTER TABLE `janji_temu`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `pembayaran`
