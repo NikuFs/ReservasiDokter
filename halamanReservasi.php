@@ -25,7 +25,7 @@
             <div class="txt_field">
                 <input type="text" name="nama" required>
                 <span></span>
-                <label>Nama</label>
+                <label>Nama Lengkap</label>
             </div>
 
             <div class="txt_field">
