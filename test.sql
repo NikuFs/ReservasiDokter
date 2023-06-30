@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 27, 2023 at 06:12 PM
--- Server version: 10.4.19-MariaDB
--- PHP Version: 8.0.6
+-- Waktu pembuatan: 30 Jun 2023 pada 05.50
+-- Versi server: 10.4.8-MariaDB
+-- Versi PHP: 7.3.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -24,29 +25,32 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dokter`
+-- Struktur dari tabel `dokter`
 --
 
 CREATE TABLE `dokter` (
-  `id` int(11) NOT NULL,
-  `nama` varchar(100) NOT NULL,
-  `gender` varchar(10) NOT NULL
+  `id` int(10) NOT NULL DEFAULT 0,
+  `username` varchar(30) CHARACTER SET utf8mb4 NOT NULL,
+  `password` varchar(30) CHARACTER SET utf8mb4 NOT NULL,
+  `nama` varchar(30) CHARACTER SET utf8mb4 NOT NULL,
+  `level` varchar(20) CHARACTER SET utf8mb4 NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `dokter`
+-- Dumping data untuk tabel `dokter`
 --
 
-INSERT INTO `dokter` (`id`, `nama`, `gender`) VALUES
-(1, 'Herman', 'Pria'),
-(2, 'Firman', 'Pria'),
-(3, 'Hilman', 'Pria'),
-(4, 'Salsa', 'Wanita');
+INSERT INTO `dokter` (`id`, `username`, `password`, `nama`, `level`) VALUES
+(9, 'dokter1', 'dokter1', 'salfa', 'admin'),
+(10, 'ikbal', 'ikbal', 'ikbal', 'admin'),
+(11, 'gibran', 'gibran', 'gibran', 'admin'),
+(12, 'jamal', 'jamal', 'jamal', 'admin'),
+(13, 'budi', 'budi', 'budi', 'admin');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `jadwal`
+-- Struktur dari tabel `jadwal`
 --
 
 CREATE TABLE `jadwal` (
@@ -58,35 +62,32 @@ CREATE TABLE `jadwal` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `janji_temu`
+-- Struktur dari tabel `janji_temu`
 --
 
 CREATE TABLE `janji_temu` (
   `id` int(11) NOT NULL,
   `nama` varchar(100) NOT NULL,
   `usia` int(11) NOT NULL,
-  `tanggal` date NOT NULL,
-  `waktu` time NOT NULL,
-  `dokter` varchar(100) NOT NULL,
   `gender` varchar(10) NOT NULL,
-  `alamat` varchar(100) NOT NULL
+  `alamat` varchar(100) NOT NULL,
+  `dokter` varchar(100) NOT NULL,
+  `tanggal` date NOT NULL,
+  `waktu` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `janji_temu`
+-- Dumping data untuk tabel `janji_temu`
 --
 
-INSERT INTO `janji_temu` (`id`, `nama`, `usia`, `tanggal`, `waktu`, `dokter`, `gender`, `alamat`) VALUES
-(12, 'coba7', 7, '2023-09-09', '09:09:00', 'coba7', 'pria', 'coba7'),
-(13, 'coba8', 8, '2023-08-08', '08:08:00', 'coba8', 'pria', 'coba8'),
-(14, 'coba9', 9, '2023-09-09', '09:09:00', 'Salsa', 'pria', 'coba9'),
-(15, 'coba10', 10, '2023-10-10', '10:10:00', 'salfa', 'pria', '10'),
-(16, 'p', 10, '1111-01-01', '11:11:00', 'salfa', 'pria', 'p');
+INSERT INTO `janji_temu` (`id`, `nama`, `usia`, `gender`, `alamat`, `dokter`, `tanggal`, `waktu`) VALUES
+(1, 'dzikri', 21, 'pria', 'Cimahi', 'salfa', '2023-06-30', '08:03:00'),
+(3, 'Zaka', 22, 'pria', 'Bandung', 'budi', '2023-06-30', '10:41:00');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `login`
+-- Struktur dari tabel `login`
 --
 
 CREATE TABLE `login` (
@@ -98,36 +99,42 @@ CREATE TABLE `login` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `login`
+-- Dumping data untuk tabel `login`
 --
 
 INSERT INTO `login` (`id`, `username`, `password`, `nama`, `level`) VALUES
 (2, 'pasien1', 'pasien1', 'iqbal', 'pasien'),
-(9, 'dokter1', 'dokter1', 'salfa', 'admin'),
-(12, 'dokter2', 'dokter2', 'Rehan', 'admin'),
-(13, 'dokter100', 'dokter100', 'Setiawan', ''),
-(16, 'coba10', 'coba10', 'coba10', 'pasien');
+(9, 'salfa', 'salfa', 'salfa', 'admin'),
+(12, 'zein', 'zein', 'zein', 'admin'),
+(13, 'dzikri', 'dzikri', 'Dzikri', 'pasien');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pembayaran`
+-- Struktur dari tabel `pembayaran`
 --
 
 CREATE TABLE `pembayaran` (
-  `id_pembayaran` int(10) NOT NULL,
-  `total_harga` varchar(20) NOT NULL,
-  `tgl_pesan` date NOT NULL,
-  `nama_ruang` varchar(20) NOT NULL,
-  `id_dokter` int(10) NOT NULL,
-  `id_pasien` int(10) NOT NULL,
-  `nama_pasien` varchar(50) NOT NULL
+  `id` int(10) NOT NULL,
+  `nama` varchar(100) NOT NULL,
+  `tanggal` date NOT NULL,
+  `waktu` time NOT NULL,
+  `dokter` varchar(100) NOT NULL,
+  `harga` varchar(50) NOT NULL,
+  `metode` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `pembayaran`
+--
+
+INSERT INTO `pembayaran` (`id`, `nama`, `tanggal`, `waktu`, `dokter`, `harga`, `metode`) VALUES
+(1, 'dzikri', '2023-06-30', '08:03:00', 'salfa', 'Rp. 80000', 'Bayar Di Tempat');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `register`
+-- Struktur dari tabel `register`
 --
 
 CREATE TABLE `register` (
@@ -143,81 +150,65 @@ CREATE TABLE `register` (
 --
 
 --
--- Indexes for table `dokter`
---
-ALTER TABLE `dokter`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `jadwal`
+-- Indeks untuk tabel `jadwal`
 --
 ALTER TABLE `jadwal`
   ADD PRIMARY KEY (`id_jadwal`);
 
 --
--- Indexes for table `janji_temu`
+-- Indeks untuk tabel `janji_temu`
 --
 ALTER TABLE `janji_temu`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `login`
+-- Indeks untuk tabel `login`
 --
 ALTER TABLE `login`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `pembayaran`
+-- Indeks untuk tabel `pembayaran`
 --
 ALTER TABLE `pembayaran`
-  ADD PRIMARY KEY (`id_pembayaran`),
-  ADD KEY `id_dokter` (`id_dokter`),
-  ADD KEY `id_pasien` (`id_pasien`),
-  ADD KEY `nama_ruang` (`nama_ruang`),
-  ADD KEY `nama_pasien` (`nama_pasien`);
+  ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `register`
+-- Indeks untuk tabel `register`
 --
 ALTER TABLE `register`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `dokter`
---
-ALTER TABLE `dokter`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `jadwal`
+-- AUTO_INCREMENT untuk tabel `jadwal`
 --
 ALTER TABLE `jadwal`
   MODIFY `id_jadwal` int(10) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `janji_temu`
+-- AUTO_INCREMENT untuk tabel `janji_temu`
 --
 ALTER TABLE `janji_temu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `login`
+-- AUTO_INCREMENT untuk tabel `login`
 --
 ALTER TABLE `login`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- AUTO_INCREMENT for table `pembayaran`
+-- AUTO_INCREMENT untuk tabel `pembayaran`
 --
 ALTER TABLE `pembayaran`
-  MODIFY `id_pembayaran` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `register`
+-- AUTO_INCREMENT untuk tabel `register`
 --
 ALTER TABLE `register`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
