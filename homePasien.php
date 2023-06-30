@@ -58,6 +58,7 @@ if (isset($_SESSION['level']) && isset($_SESSION['username'])) {
           <ul>
             <!-- <li><a class="nav-link scrollto active" href="#hero">Home</a></li> -->
             <li><a class="nav-link scrollto" href="halamanReservasi.php"><b>Reservasi</b></a></li>
+            <li><a class="nav-link scrollto" href="halamanPembayaran.php"><b>Pembayaran</b></a></li>
             <li><a class="nav-link scrollto" href="#about">About</a></li>
             <li><a class="nav-link scrollto" href="#services">Services</a></li>
             <li><a class="nav-link scrollto" href="#team">Team</a></li>
