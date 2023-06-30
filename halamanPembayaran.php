@@ -6,7 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Halaman Pembayaran</title>
+    <title> MedReserve | Pembayaran</title>
+     <!-- Favicons -->
+     <link rel="shortcut icon" href="assets/img/logoRR.png" type="image/gif">
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
@@ -61,6 +63,7 @@
                 <input type="text" name="harga" required>
                 <span></span>
                 <label>Total harga</label>
+                
             </div>
 
             <h4 class="text-center lead">Pilih Metode Pembayaran</h4>

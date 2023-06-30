@@ -19,7 +19,7 @@
             $_SESSION['username'] = $username;
             $_SESSION['level'] = "pasien";
 
-            header("location:homePasien.php");
+            header("location:term.php");
         }else{
             header("location:formLogin.php?pesan=gagal");
         }
