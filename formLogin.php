@@ -28,6 +28,10 @@
             <input type="submit" name="submit" value="Login">
 
             <div class="signup_link">
+   
+            <b><a href="index.php" class="btn">Kembali</a></b>
+            <div class="signup_link">
+   
                 <a href="formRegister.php">Belum punya akun?</a>
             </div>
         </form>
