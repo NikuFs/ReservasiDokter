@@ -56,10 +56,6 @@
                                     </li>
                                 </ul>
                             </li> -->
-                            <li>
-                                <a href="crudJadwal.php" class="nav-link px-0 align-middle">
-                                    <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Jadwal</span></a>
-                            </li>
 
                             <li>
                                 <a href="crudUser.php" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
@@ -86,7 +82,48 @@
                     </div>
                 </div>
                 <div class="col py-3">
-                    <!-- NGODING KONTEN DISEBELAH SINI GAN -->
+                    <table class="table">
+                        <tr>
+                            <th>No</th>
+                            <th>Nama Pasien</th>
+                            <th>Tanggal Pesan</th>
+                            <th>Waktu Pesan</th>
+                            <th>Nama Dokter</th>
+                            <th>Total Harga</th>
+                            <th>Metode Pembayaran</th>
+                            <th>Aksi</th>
+                        </tr>
+                        
+                        <?php
+                            include 'koneksi.php';
+
+                            $sql = "SELECT * FROM pembayaran";
+                            $result = $conn -> query($sql);
+
+                            if(!$result){
+                                die("Invalid query: ". $conn -> error);
+                            }
+
+
+                            // Menampilkan data janji temu dalam tabel
+                            while($row = $result -> fetch_assoc()){
+                                echo "<tr>
+                                    <td>".$row["id"]."</td>
+                                    <td>".$row['nama']."</td>
+                                    <td>".$row["tanggal"]."</td>
+                                    <td>".$row["waktu"]."</td>
+                                    <td>".$row["dokter"]."</td>
+                                    <td>".$row["harga"]."</td>
+                                    <td>".$row["metode"]."</td>
+                                    <td><a href='hapusPembayaran.php?id=".$row['id']."'><i class='bi-trash'></i></a></td>
+                                    <td><a href='editFormPembayaran.php?id=".$row['id']."'><i class='bi-pen'></i></a></td>
+                                </tr>";
+                            }
+                        ?>
+                    </table>
+                    <a href="tampilPembayaran.php">
+                            <button type="button" class="btn btn-primary float-end">Cetak</button>
+                    </a>
                 </div>
             </div>
         </div>

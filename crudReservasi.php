@@ -56,10 +56,6 @@
                                 </ul>
                             </li> -->
 
-                            <li>
-                                <a href="crudJadwal.php" class="nav-link px-0 align-middle">
-                                    <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Jadwal</span></a>
-                            </li>
 
                             <li>
                                 <a href="crudUser.php" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
@@ -127,6 +123,9 @@
                             }
                         ?>
                     </table>
+                    <a href="tampilUser.php">
+                            <button type="button" class="btn btn-primary float-end">Cetak</button>
+                    </a>
                 </div>
             </div>
         </div>

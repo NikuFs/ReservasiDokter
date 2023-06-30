@@ -1,10 +1,3 @@
-<?php
-    session_start();
-
-    if(isset($_SESSION['level']) && isset($_SESSION['username'])){
-        $username = $_SESSION['username'];
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -438,10 +431,3 @@
 </body>
 
 </html>
-
-<?php
-    }else{
-        header("Location: formLogin.php");
-        exit();
-    }
-?>

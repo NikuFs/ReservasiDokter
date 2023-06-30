@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -6,50 +5,80 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>Halaman Checkout</title>
+        <title>Halaman Pembayaran</title>
+
         <link rel="stylesheet" href="style.css">
     </head>
 
 <body>
   <div class="center">
-    <div class="row justify-content-center">
-      <div class="col-lg-6 px-4 pb-4" id="order">
-        <h1 class="text-center text-info p-2">Checkout Reservasi</h1>
-        <div class="jumbotron p-3 mb-2 text-center">
-        <h5 class="lead"><b>Nama : </b></h5>
-        <h5 class="lead"><b>Usia : </b></h5>
-          <h5 class="lead"><b>Dokter : </b></h5>
-          <h5 class="lead"><b>Tanggal : </b></h5>
-          <h5 class="lead"><b>Jam : </b></h5>
-          <h5><b>Biaya Reservasi : </b>/-</h5>
-        </div>
-        <form action="" method="post" id="placeOrder">
-          <input type="hidden" name="products" value="<?= $allItems; ?>">
-          <input type="hidden" name="grand_total" value="<?= $grand_total; ?>"> 
-          <div class="form-group">
-            <input type="email" name="email" class="form-control" placeholder="Enter E-Mail" required>
-          </div>
-          <div class="form-group">
-            <input type="tel" name="phone" class="form-control" placeholder="Enter Phone" required>
-          </div>
-          <div class="form-group">
-            <textarea name="address" class="form-control" rows="3" cols="50" placeholder="Enter Delivery Address Here..."></textarea>
-          </div>
-          <h6 class="text-center lead">Select Payment Mode</h6>
-          <div class="form-group">
-            <select name="pmode" class="form-control">
-              <option value="" selected disabled>-Select Payment Mode-</option>
-              <option value="cod">Cash On Delivery</option>
-              <option value="netbanking">Net Banking</option>
+        <h1>Pembayaran</h1>
+        <form action="pembayaran.php" method="post" onsubmit="showAlert()">
+            <div class="txt_field">
+                <input type="text" name="nama" required>
+                <span></span>
+                <label>Nama Pasien</label>
+            </div>
+            <div class="txt_field">
+                <input type="date" name="tanggal" required>
+                <span></span>
+            </div>
+            <div class="txt_field">
+                <input type="time" name="waktu" required>
+                <span></span>
+            </div>
+
+            <?php
+            include 'koneksi.php';
+
+            $sql = "SELECT * FROM dokter";
+            $result = $conn->query($sql);
+
+            $options = array();
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    $options[] = $row['nama'];
+                }
+            }
+
+            echo "<label for='dokter'>Dokter</label><br>";
+            echo "<select class='form-select' name='dokter' aria-label='Default select example'>";
+            foreach ($options as $option) {
+                echo "<option value='$option'>$option</option>";
+            }
+            echo "</select>";
+            ?>
+
+            <div class="txt_field">
+                <input type="text" name="harga" required>
+                <span></span>
+                <label>Total harga</label>
+            </div>
+
+            <h4 class="text-center lead">Pilih Metode Pembayaran</h4>
+            <select name="metode" id="metode" class="form-select" aria-label="Default select example">
+              <option value="" selected disabled>-Pilih Metode Pembayaran-</option>
+              <option value="cod">Bayar Di Tempat</option>
+              <option value="netbanking">Dompet Digital</option>
               <option value="cards">Debit/Credit Card</option>
             </select>
-          </div>
-          <div class="form-group">
-            <input type="submit" name="submit" value="Checkout" class="btn btn-danger btn-block">
-          </div>
+            <div><br></div>
+    
+            <input type="submit" name="submit" value="Tambah">
         </form>
-      </div>
-    </div>
+
+        <form action="">
+            <input type="submit" name="submit" value="Cetak Bukti">
+        </form>
+        <form action="homePasien.php">
+            <input type="submit" name="submit" value="Kembali">
+        </form>
+        <div><br></div>
+        <script>
+            function showAlert() {
+                alert("Pembayaran berhasil dilakukan!");
+            }
+        </script>
   </div>
 </body>
 
