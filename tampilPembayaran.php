@@ -60,7 +60,7 @@
         <button class="btn btn-primary me-2" onclick="printInvoice()">
             <i class="bi bi-printer-fill me-2">Cetak Pembayaran</i>
         </button>
-        <a href="crudPembayaran.php" class="btn btn-secondary">
+        <a href="halamanPembayaran.php" class="btn btn-secondary">
             <i class="bi bi-arrow-left me-2">Kembali</i>
         </a>
     </div>
