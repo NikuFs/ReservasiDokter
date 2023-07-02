@@ -78,7 +78,7 @@
             <input type="submit" name="submit" value="Tambah">
         </form>
 
-        <form action="">
+        <form action="historyPembayaran.php">
             <input type="submit" name="submit" value="Cetak Bukti">
         </form>
         <form action="homePasien.php">
