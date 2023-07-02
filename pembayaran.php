@@ -11,7 +11,7 @@
     $metode = $_POST['metode'];
     
 
-    $sql = "INSERT INTO pembayaran (nama, tanggal, waktu, dokter, harga, metode) VALUES('$name', '$tanggal', '$waktu', '$dokter', '$harga', $metode)";
+    $sql = "INSERT INTO pembayaran (nama, tanggal, waktu, dokter, harga, metode) VALUES('$name', '$tanggal', '$waktu', '$dokter', '$harga', '$metode')";
 
     if(mysqli_query($conn, $sql)){
         echo "Data berhasil ditambahkan <br>";
