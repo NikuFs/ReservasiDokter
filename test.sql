@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 30 Jun 2023 pada 05.50
--- Versi server: 10.4.8-MariaDB
--- Versi PHP: 7.3.10
+-- Generation Time: Jul 02, 2023 at 04:29 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -25,19 +24,19 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `dokter`
+-- Table structure for table `dokter`
 --
 
 CREATE TABLE `dokter` (
   `id` int(10) NOT NULL DEFAULT 0,
-  `username` varchar(30) CHARACTER SET utf8mb4 NOT NULL,
-  `password` varchar(30) CHARACTER SET utf8mb4 NOT NULL,
-  `nama` varchar(30) CHARACTER SET utf8mb4 NOT NULL,
-  `level` varchar(20) CHARACTER SET utf8mb4 NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `username` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `password` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `nama` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `level` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data untuk tabel `dokter`
+-- Dumping data for table `dokter`
 --
 
 INSERT INTO `dokter` (`id`, `username`, `password`, `nama`, `level`) VALUES
@@ -50,19 +49,19 @@ INSERT INTO `dokter` (`id`, `username`, `password`, `nama`, `level`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `jadwal`
+-- Table structure for table `jadwal`
 --
 
 CREATE TABLE `jadwal` (
   `id_jadwal` int(10) NOT NULL,
   `tanggal` date NOT NULL,
   `jam_mulai` time NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `janji_temu`
+-- Table structure for table `janji_temu`
 --
 
 CREATE TABLE `janji_temu` (
@@ -74,20 +73,12 @@ CREATE TABLE `janji_temu` (
   `dokter` varchar(100) NOT NULL,
   `tanggal` date NOT NULL,
   `waktu` time NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `janji_temu`
---
-
-INSERT INTO `janji_temu` (`id`, `nama`, `usia`, `gender`, `alamat`, `dokter`, `tanggal`, `waktu`) VALUES
-(1, 'dzikri', 21, 'pria', 'Cimahi', 'salfa', '2023-06-30', '08:03:00'),
-(3, 'Zaka', 22, 'pria', 'Bandung', 'budi', '2023-06-30', '10:41:00');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `login`
+-- Table structure for table `login`
 --
 
 CREATE TABLE `login` (
@@ -96,22 +87,19 @@ CREATE TABLE `login` (
   `password` varchar(30) NOT NULL,
   `nama` varchar(30) NOT NULL,
   `level` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `login`
+-- Dumping data for table `login`
 --
 
 INSERT INTO `login` (`id`, `username`, `password`, `nama`, `level`) VALUES
-(2, 'pasien1', 'pasien1', 'iqbal', 'pasien'),
-(9, 'salfa', 'salfa', 'salfa', 'admin'),
-(12, 'zein', 'zein', 'zein', 'admin'),
-(13, 'dzikri', 'dzikri', 'Dzikri', 'pasien');
+(15, 'obit', '10102001', 'obit', 'pasien');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pembayaran`
+-- Table structure for table `pembayaran`
 --
 
 CREATE TABLE `pembayaran` (
@@ -122,19 +110,21 @@ CREATE TABLE `pembayaran` (
   `dokter` varchar(100) NOT NULL,
   `harga` varchar(50) NOT NULL,
   `metode` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `pembayaran`
+-- Dumping data for table `pembayaran`
 --
 
 INSERT INTO `pembayaran` (`id`, `nama`, `tanggal`, `waktu`, `dokter`, `harga`, `metode`) VALUES
-(1, 'dzikri', '2023-06-30', '08:03:00', 'salfa', 'Rp. 80000', 'Bayar Di Tempat');
+(2, 'obit', '2023-07-02', '01:01:00', 'ikbal', '10.000', ''),
+(3, 'obit revian', '2023-07-02', '02:02:00', 'budi', '100.000.000', 'cod'),
+(4, 'obbbbbb', '2023-07-05', '05:04:00', 'gibran', '777.777', 'netbanking');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `register`
+-- Table structure for table `register`
 --
 
 CREATE TABLE `register` (
@@ -143,72 +133,72 @@ CREATE TABLE `register` (
   `username` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `jadwal`
+-- Indexes for table `jadwal`
 --
 ALTER TABLE `jadwal`
   ADD PRIMARY KEY (`id_jadwal`);
 
 --
--- Indeks untuk tabel `janji_temu`
+-- Indexes for table `janji_temu`
 --
 ALTER TABLE `janji_temu`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `login`
+-- Indexes for table `login`
 --
 ALTER TABLE `login`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `pembayaran`
+-- Indexes for table `pembayaran`
 --
 ALTER TABLE `pembayaran`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `register`
+-- Indexes for table `register`
 --
 ALTER TABLE `register`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `jadwal`
+-- AUTO_INCREMENT for table `jadwal`
 --
 ALTER TABLE `jadwal`
   MODIFY `id_jadwal` int(10) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `janji_temu`
+-- AUTO_INCREMENT for table `janji_temu`
 --
 ALTER TABLE `janji_temu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `login`
+-- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT untuk tabel `pembayaran`
+-- AUTO_INCREMENT for table `pembayaran`
 --
 ALTER TABLE `pembayaran`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `register`
+-- AUTO_INCREMENT for table `register`
 --
 ALTER TABLE `register`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
