@@ -9,7 +9,7 @@
         <meta content="" name="keywords">
 
         <!-- Favicons -->
-        <link href="assets/img/favicon.png" rel="icon">
+        <link href="assets/img/LogoRRR.png" rel="icon">
         <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
         <!-- Google Fonts -->
@@ -70,7 +70,7 @@
                             </li>
 
                             <li>
-                                <a href="logout.php" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                                <a href="logoutAdmin.php" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                                     </i> <span class="ms-1 d-none d-sm-inline">LogOut</span> </a>
                             </li>
 

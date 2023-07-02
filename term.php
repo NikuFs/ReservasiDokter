@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>MedReserve | Syarat dan Ketentuan</title>
-    <link rel="shortcut icon" href="assets/img/logoRR.png" type="image/gif">
+    <link rel="shortcut icon" href="assets/img/logoRRR.png" type="image/gif">
     <link rel="stylesheet" type="text/css" href="termstyle.css">
     <style>
 

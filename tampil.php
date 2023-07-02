@@ -2,10 +2,11 @@
 <html lang="en">
 
 <head>
+<link rel="shortcut icon" href="assets/img/logoRRR.png" type="image/gif">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laporan Reservasi</title>
+    <title>MedReserve | Laporan Reservasi</title>
     <!-- <link rel="stylesheet" href="style.css"> -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>

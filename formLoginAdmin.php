@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="shortcut icon" href="assets/img/logoRR.png" type="image/gif">
+        <link rel="shortcut icon" href="assets/img/logoRRR.png" type="image/gif">
         <title>MedReserve | Login Admin</title>
         <link rel="stylesheet" href="style.css">
     </head>
@@ -27,6 +27,9 @@
 
             <input type="submit" name="submit" value="Login">
 
+            <div class="signup_link">
+                
+            <b><a href="index.php" class="btn">Kembali</a></b>
             <div class="signup_link">
                 <a href="formRegisterAdmin.php">Belum punya akun?</a>
             </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 02, 2023 at 04:29 PM
+-- Generation Time: Jul 02, 2023 at 06:28 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -29,10 +29,10 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `dokter` (
   `id` int(10) NOT NULL DEFAULT 0,
-  `username` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `password` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `nama` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `level` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
+  `username` varchar(30) CHARACTER SET utf16 COLLATE utf16_general_ci NOT NULL,
+  `password` varchar(30) CHARACTER SET utf16 COLLATE utf16_general_ci NOT NULL,
+  `nama` varchar(50) CHARACTER SET utf16 COLLATE utf16_general_ci NOT NULL,
+  `level` varchar(20) CHARACTER SET utf16 COLLATE utf16_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
@@ -40,11 +40,12 @@ CREATE TABLE `dokter` (
 --
 
 INSERT INTO `dokter` (`id`, `username`, `password`, `nama`, `level`) VALUES
-(9, 'dokter1', 'dokter1', 'salfa', 'admin'),
-(10, 'ikbal', 'ikbal', 'ikbal', 'admin'),
-(11, 'gibran', 'gibran', 'gibran', 'admin'),
-(12, 'jamal', 'jamal', 'jamal', 'admin'),
-(13, 'budi', 'budi', 'budi', 'admin');
+(2206, 'angling', 'angling', 'ANGLING YUNANTO, SP.U, DR', 'admin'),
+(2202, 'wahyu', 'wahyu', 'dr. Wahyu Murtiono Hadibroto, ', 'admin'),
+(2203, 'yanti', 'yanti', 'dr. Yanti Nurrokhmawati, Sp.TH', 'admin'),
+(2204, 'rendra', 'rendra', 'dr. Rendra Irawan, Sp.OT (K) Spine', 'admin'),
+(2205, 'lina', 'lina', 'LINA DAMAYANTI, SP. KK, DR', 'admin'),
+(2207, 'obit', 'obit', 'Obit Revian, SP.KG ,DRG.', 'admin');
 
 -- --------------------------------------------------------
 
@@ -75,6 +76,15 @@ CREATE TABLE `janji_temu` (
   `waktu` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `janji_temu`
+--
+
+INSERT INTO `janji_temu` (`id`, `nama`, `usia`, `gender`, `alamat`, `dokter`, `tanggal`, `waktu`) VALUES
+(5, 'Obit Revian Oktia', 21, 'pria', 'bandung', 'ANGLING YUNANTO, SP.U, DR', '2023-07-02', '12:00:00'),
+(6, 'Obit Revian Oktia Zandra', 22, 'pria', 'bandung barat', 'LINA DAMAYANTI, SP. KK, DR', '2023-07-03', '08:00:00'),
+(7, 'obit', 20, 'pria', 'jakarta', 'Obit Revian, SP.KG ,DRG.', '2023-07-31', '00:00:00');
+
 -- --------------------------------------------------------
 
 --
@@ -94,7 +104,16 @@ CREATE TABLE `login` (
 --
 
 INSERT INTO `login` (`id`, `username`, `password`, `nama`, `level`) VALUES
-(15, 'obit', '10102001', 'obit', 'pasien');
+(16, 'pasien1', 'pasien1', 'pasien1', 'pasien'),
+(17, 'admin', 'admin', 'admin', 'admin'),
+(18, 'pasien', 'pasien', 'pasien', 'pasien'),
+(20, 'angling', 'angling', 'ANGLING YUNANTO, SP.U, DR', 'admin'),
+(21, 'lina', 'lina', 'LINA DAMAYANTI, SP. KK, DR', 'admin'),
+(22, 'rendra', 'rendra', 'dr. Rendra Irawan, Sp.OT (K) S', 'admin'),
+(23, 'yanti', 'yanti', 'dr. Yanti Nurrokhmawati, Sp.TH', 'admin'),
+(24, 'wahyu', 'wahyu', 'dr. Wahyu Murtiono Hadibroto, ', 'admin'),
+(25, 'obit', 'obit', 'Obit Revian, SP.KG ,DRG.', 'admin'),
+(27, 'revian', 'revian', 'revian', 'pasien');
 
 -- --------------------------------------------------------
 
@@ -117,9 +136,9 @@ CREATE TABLE `pembayaran` (
 --
 
 INSERT INTO `pembayaran` (`id`, `nama`, `tanggal`, `waktu`, `dokter`, `harga`, `metode`) VALUES
-(2, 'obit', '2023-07-02', '01:01:00', 'ikbal', '10.000', ''),
-(3, 'obit revian', '2023-07-02', '02:02:00', 'budi', '100.000.000', 'cod'),
-(4, 'obbbbbb', '2023-07-05', '05:04:00', 'gibran', '777.777', 'netbanking');
+(5, 'Obit Revian Oktia', '2023-07-03', '12:00:00', 'ANGLING YUNANTO, SP.U, DR', '100.000', 'cod'),
+(6, 'Obit Revian Oktia Zandra', '2023-07-03', '08:00:00', 'LINA DAMAYANTI, SP. KK, DR', '200.000', 'cod'),
+(7, 'obit', '2023-07-31', '00:00:00', 'Obit Revian, SP.KG ,DRG.', '999.999.999', 'cards');
 
 -- --------------------------------------------------------
 
@@ -183,19 +202,19 @@ ALTER TABLE `jadwal`
 -- AUTO_INCREMENT for table `janji_temu`
 --
 ALTER TABLE `janji_temu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `pembayaran`
 --
 ALTER TABLE `pembayaran`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `register`

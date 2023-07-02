@@ -14,7 +14,7 @@
         <meta content="" name="keywords">
 
         <!-- Favicons -->
-        <link rel="shortcut icon" href="assets/img/logoRR.png" type="image/gif">
+        <link rel="shortcut icon" href="assets/img/logoRRR.png" type="image/gif">
         <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
         <!-- Google Fonts -->
