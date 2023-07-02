@@ -23,7 +23,7 @@
 <body>
   <div class="center">
         <h1>Pembayaran</h1>
-        <form action="pembayaran.php" method="post" onsubmit="showAlert()">
+        <form action="pembayaran.php" method="post" onsubmit="return confirm('Apakah Anda yakin ingin melakukan pembayaran?')">
             <div class="txt_field">
                 <input type="text" name="nama" required>
                 <span></span>
