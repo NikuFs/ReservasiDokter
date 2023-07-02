@@ -19,7 +19,7 @@
             $_SESSION['username'] = $username;
             $_SESSION['level'] = "admin";
 
-            header("location:Crud.php");
+            header("location:crud.php");
         }else{
             header("location:formLoginAdmin.php?pesan=gagal");
         }
