@@ -84,7 +84,7 @@
   
 </body>
       <div class="buttons">
-        <form method="post" action="homepasien.php">
+        <form method="post" action="homePasien.php">
           <input type="checkbox" name="agree" value="yes" required>
           <button class="button agree-button" type="submit" name="submit">Setuju</button>
         </form>
