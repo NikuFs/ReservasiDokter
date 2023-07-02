@@ -36,6 +36,14 @@ if (isset($_SESSION['level']) && isset($_SESSION['username'])) {
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
 
+    <!-- CSS Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- JavaScript Bootstrap (Popper.js, jQuery, dan JavaScript Bootstrap) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
     <!-- =======================================================
   * Template Name: Arsha
   * Updated: Mar 10 2023 with Bootstrap v5.2.3
@@ -59,7 +67,15 @@ if (isset($_SESSION['level']) && isset($_SESSION['username'])) {
           <ul>
             <!-- <li><a class="nav-link scrollto active" href="#hero">Home</a></li> -->
             <li><a class="nav-link scrollto" href="halamanReservasi.php"><b>Reservasi</b></a></li>
-            <li><a class="nav-link scrollto" href="halamanPembayaran.php"><b>Pembayaran</b></a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Pembayaran
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item text-dark" href="halamanPembayaran.php">Pembayaran</a>
+                <a class="dropdown-item text-dark" href="historyPembayaran.php">History Pembayaran</a>
+              </div>
+            </li>
             <li><a class="nav-link scrollto" href="#about">About</a></li>
             <li><a class="nav-link scrollto" href="#services">Services</a></li>
             <li><a class="nav-link scrollto" href="#team">Team</a></li>
